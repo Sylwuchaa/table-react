@@ -40,10 +40,12 @@ class DataTable extends React.Component {
 
   render() {
     return (
+      <>
       <table>
         <DataTableHead cols={this.props.cols} />
         <DataTableBody data={this.props.data} />
       </table>
+      </>
     );
   }
 }
@@ -70,7 +72,14 @@ class DataTableBody extends React.Component {
     state = {
       data: this.props.data
     };
+  handleRemoveBtn = (e) => {
+    console.log(e.target.parentNode.style.textDecoration = "line-through");
+    console.log(e.target.parentNode.remove);
+    this.setState( prevState => ({
 
+    })
+    )
+  }
   render() {
     return (
       <tbody>
@@ -80,6 +89,7 @@ class DataTableBody extends React.Component {
               <td>{i.name}</td>
               <td>{i.sex}</td>
               <td>{i.dateOfBirth}</td>
+              <button onClick={this.handleRemoveBtn}>Delete</button>
             </tr>
           );
         })}
